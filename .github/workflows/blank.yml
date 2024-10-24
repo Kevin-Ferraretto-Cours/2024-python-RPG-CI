@@ -1,0 +1,55 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Pipeline
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "dev" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run tests
+        run: pytest
+        continue-on-error: true
+
+      - name: Create branch for failures
+        if: failure()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b failure/$(date +%s)
+          git push origin failure/$(date +%s)
+
+      - name: Reset dev branch after failure
+        if: failure()
+        run: |
+          git checkout dev
+          git reset --hard HEAD~1
+          git push --force
+
+      - name: Fast-forward merge to main
+        if: success()
+        run: |
+          git checkout main
+          git merge --ff-only dev
+          git push origin main
