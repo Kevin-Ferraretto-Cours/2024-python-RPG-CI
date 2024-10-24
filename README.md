@@ -15,7 +15,7 @@ Avantages :
 
 Inconvénients :
 
--Limitation pour projets privés : 2 000 minutes gratuites par mois.
+-Limitation pour projets privés : 2 000 minutes gratuites par mois si le projet est conséquent.
 
 -Performances limitées des machines gratuites : Ralentissement possible pour les pipelines complexes.
 
