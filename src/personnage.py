@@ -1,6 +1,6 @@
 class Personage:
     def __init__(self):
-        self.hp = 10
+        self.hp = 20
 
     def get_hp(self):
-        return 10
+        return 20
