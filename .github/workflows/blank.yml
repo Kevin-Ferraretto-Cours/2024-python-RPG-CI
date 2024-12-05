@@ -50,6 +50,7 @@ jobs:
       - name: Fast-forward merge to main
         if: success()
         run: |
+          git fetch origin main
           git checkout origin/main
           git merge --ff-only dev
           git push origin main
