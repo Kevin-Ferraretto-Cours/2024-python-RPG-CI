@@ -9,7 +9,6 @@ class Personage:
     def attaquer(self, defenseur):
         if not defenseur.est_mort:
             defenseur.hp -= 1
-        defenseur.hp -= 1
         if defenseur.hp == 0:
             defenseur.est_mort = True
     
