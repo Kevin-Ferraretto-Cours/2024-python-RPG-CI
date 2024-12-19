@@ -17,5 +17,5 @@ class Personage:
 
     def resurrection(self):
         if self.est_mort == True:
-            self.hp = 0
+            self.hp = 1
             self.est_mort = False
