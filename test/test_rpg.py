@@ -12,3 +12,11 @@ class MyTest_Case(unittest.TestCase):
         defenseur = Personage()
         attaquant.attaquer(defenseur)
         self.assertEqual(19, defenseur.get_hp())
+
+    def test_personnage_meurt_a_0_hp(self):
+        attaquant = Personage()
+        defenseur = Personage()
+        for _ in range(10):
+            attaquant.attaquer(defenseur)
+        self.assertEqual(0, defenseur.get_hp())
+        self.assertFalse(defenseur.est_vivant())
