@@ -31,8 +31,10 @@ jobs:
           python-version: '3.12'
 
       - name: Run tests
-        run: pytest
-        continue-on-error: true
+        run: |
+          pip install pytest
+          pytest
+        continue-on-error: false
 
       - name: Create branch for failures
         if: failure()
