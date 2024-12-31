@@ -39,3 +39,9 @@ class MyTest_Case(unittest.TestCase):
         defenseur.resurrection()
         self.assertEqual(1, defenseur.get_hp())
         self.assertTrue(defenseur.est_vivant())
+
+    def test_soin_apres_attaque(self):
+        personage = Personage()
+        personage.hp = 10
+        personage.soigner(5)
+        self.assertEqual(15, personage.get_hp())
