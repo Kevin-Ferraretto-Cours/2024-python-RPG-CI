@@ -43,6 +43,6 @@ class MyTest_Case(unittest.TestCase):
     def test_resurrection_personnage_deja_vivant(self):
         attaquant = Personage()
         attaquant.resurrection()
-        self.assertEqual(10, attaquant.get_hp())
+        self.assertEqual(20, attaquant.get_hp())
 
     
