@@ -1,5 +1,5 @@
 # RPG-CI-Eval
-Gabriel K, Killian B, Kevin F, Anis H
+Gabriel K, Kevin F, Anis H
 
 Avantages :
 
