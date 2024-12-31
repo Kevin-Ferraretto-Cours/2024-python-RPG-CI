@@ -19,3 +19,9 @@ class Personage:
         if self.est_mort == True:
             self.hp = 0
             self.est_mort = False
+
+    def soigner(self, montant):
+        if not self.est_mort:
+            self.hp += montant
+            if self.hp > 20:
+                self.hp = 20
